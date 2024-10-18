@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41184060-5969-44be-903c-4f454006a844" name="Changes" comment="test">
-      <change beforePath="$PROJECT_DIR$/xzs/test2.html" beforeDir="false" afterPath="$PROJECT_DIR$/xzs/test2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +34,9 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="localRepository" value="D:\develop\Maven\repository" />
-        <option name="mavenHome" value="D:\develop\Maven\apache-maven-3.9.6" />
-        <option name="userSettingsFile" value="D:\develop\Maven\apache-maven-3.9.6\conf\settings.xml" />
+        <option name="mavenHome" value="$USER_HOME$/Downloads/apache-maven-3.9.4-bin/apache-maven-3.9.4" />
+        <option name="useMavenConfig" value="true" />
+        <option name="userSettingsFile" value="C:\Users\yacc9\Downloads\apache-maven-3.9.4-bin\apache-maven-3.9.4\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
@@ -62,6 +63,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/yacc9/Desktop/5620/5620/ELEC5620",
+    "mysql-explain.agentPath": "C:\\Users\\yacc9\\AppData\\Roaming\\JetBrains\\IdeaIC2022.3\\plugins\\mysql-explain-intellij-plugin\\lib\\mysql-explain-agent-1.1.0-jar-with-dependencies.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -70,7 +73,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "vcs.Perforce",
+    "settings.editor.selected.configurable": "MavenSettings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
