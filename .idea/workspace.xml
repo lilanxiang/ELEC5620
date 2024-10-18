@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="41184060-5969-44be-903c-4f454006a844" name="Changes" comment="test">
+    <list default="true" id="41184060-5969-44be-903c-4f454006a844" name="Changes" comment="FileController">
+      <change afterPath="$PROJECT_DIR$/log/xzs.20241018.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xzs/src/main/java/com/mindskip/xzs/controller/FileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xzs/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xzs/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xzs/src/main/resources/application-pre.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xzs/src/main/resources/application-pre.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xzs/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xzs/src/main/resources/application-prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xzs/src/main/resources/application-test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xzs/src/main/resources/application-test.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,21 +33,20 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/lilanxiang/ELEC5620",
+    "accountId": "76c75c07-472c-45ad-9375-b6b084559779"
+  }
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="localRepository" value="D:\develop\Maven\repository" />
-        <option name="mavenHome" value="$USER_HOME$/Downloads/apache-maven-3.9.4-bin/apache-maven-3.9.4" />
-        <option name="useMavenConfig" value="true" />
-        <option name="userSettingsFile" value="C:\Users\yacc9\Downloads\apache-maven-3.9.4-bin\apache-maven-3.9.4\conf\settings.xml" />
-      </MavenGeneralSettings>
-    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="jdkForImporter" value="#JAVA_HOME" />
+        <option name="workspaceImportForciblyTurnedOn" value="true" />
       </MavenImportingSettings>
     </option>
   </component>
@@ -60,8 +65,16 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
+    "Maven.xzs [clean].executor": "Run",
+    "Maven.xzs [install].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.XzsApplication.executor": "Run",
+    "git-widget-placeholder": "yuanqian-huang",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/yacc9/Desktop/5620/5620/ELEC5620",
     "mysql-explain.agentPath": "C:\\Users\\yacc9\\AppData\\Roaming\\JetBrains\\IdeaIC2022.3\\plugins\\mysql-explain-intellij-plugin\\lib\\mysql-explain-agent-1.1.0-jar-with-dependencies.jar",
@@ -77,6 +90,12 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.mindskip.xzs.controller" />
+      <recent name="com.mindskip.xzs.controller.wx" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="XzsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
@@ -90,7 +109,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.2-corretto-21.0.2-3183f394aec4-09c6784e" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
       </set>
     </attachedChunks>
   </component>
@@ -103,6 +123,7 @@
       <option name="presentableId" value="Default" />
       <updated>1729211274682</updated>
       <workItem from="1729211277111" duration="639000" />
+      <workItem from="1729224358485" duration="9882000" />
     </task>
     <task id="LOCAL-00001" summary="readme">
       <option name="closed" value="true" />
@@ -142,9 +163,33 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="readme" />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="FileController" />
+    <option name="LAST_COMMIT_MESSAGE" value="FileController" />
   </component>
 </project>
