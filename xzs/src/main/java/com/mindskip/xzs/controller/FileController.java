@@ -65,25 +65,7 @@ public class FileController {
         return ResponseEntity.ok(fileNames);
     }
 
-
-  /*  @GetMapping("/download/{fileName}")
-    public ResponseEntity<byte[]> downloadFile(@PathVariable String fileName) {
-        try {
-            // 解码文件名，确保特殊字符和中文可以正确识别
-            String decodedFileName = URLDecoder.decode(fileName, "UTF-8");
-            Path filePath = Paths.get(UPLOAD_DIR + decodedFileName);
-            byte[] fileBytes = Files.readAllBytes(filePath);
-
-            HttpHeaders headers = new HttpHeaders();
-            headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + decodedFileName + "\"");
-
-            return new ResponseEntity<>(fileBytes, headers, HttpStatus.OK);
-        } catch (IOException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-        }
-    }*/
-
-
+    // 下载文件
     @GetMapping("/download")
     public ResponseEntity<byte[]> downloadFile(@RequestParam("filename") String fileName) {
         try {
@@ -101,6 +83,22 @@ public class FileController {
         }
     }
 
+    // 删除文件
+    @DeleteMapping("/delete")
+    public ResponseEntity<String> deleteFile(@RequestParam("filename") String filename) {
+        try {
+            // 解码文件名，确保特殊字符和中文可以识别
+            String decodedFileName = URLDecoder.decode(filename, "UTF-8");
+            Path filePath = Paths.get(UPLOAD_DIR + decodedFileName);
 
-
+            // 删除文件
+            if (Files.deleteIfExists(filePath)) {
+                return ResponseEntity.status(HttpStatus.OK).body("File deleted successfully");
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("File not found");
+            }
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to delete file: " + e.getMessage());
+        }
+    }
 }

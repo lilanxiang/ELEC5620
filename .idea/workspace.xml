@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41184060-5969-44be-903c-4f454006a844" name="Changes" comment="FileController">
-      <change afterPath="$PROJECT_DIR$/log/xzs.20241018.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xzs/src/main/java/com/mindskip/xzs/controller/FileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/xzs.20241019.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xzs/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xzs/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xzs/src/main/resources/application-pre.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xzs/src/main/resources/application-pre.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xzs/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xzs/src/main/resources/application-prod.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xzs/src/main/resources/application-test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xzs/src/main/resources/application-test.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/xzs.20241018.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/xzs.20241018.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xzs/src/main/java/com/mindskip/xzs/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xzs/src/main/java/com/mindskip/xzs/controller/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xzs/src/main/java/com/mindskip/xzs/controller/student/ExamPaperAnswerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xzs/src/main/java/com/mindskip/xzs/controller/student/ExamPaperAnswerController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +31,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Nicoleeee1"
+  }
+}]]></component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/lilanxiang/ELEC5620",
@@ -58,12 +62,16 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2naVf3692bqBjBFWV3MQJ4Dt5JO" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "DefaultHtmlFileTemplate": "HTML File",
     "Maven.xzs [clean].executor": "Run",
     "Maven.xzs [install].executor": "Run",
@@ -76,7 +84,7 @@
     "Spring Boot.XzsApplication.executor": "Run",
     "git-widget-placeholder": "yuanqian-huang",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/yacc9/Desktop/5620/5620/ELEC5620",
+    "last_opened_file_path": "D:/学习/5348_ESSA/GroupProject/Practice-01-Group-05",
     "mysql-explain.agentPath": "C:\\Users\\yacc9\\AppData\\Roaming\\JetBrains\\IdeaIC2022.3\\plugins\\mysql-explain-intellij-plugin\\lib\\mysql-explain-agent-1.1.0-jar-with-dependencies.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -91,6 +99,10 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\5620\ELEC5620\xzs\src\main\java\com\mindskip\xzs\service" />
+      <recent name="D:\5620\ELEC5620\xzs\src\main\java\com\mindskip\xzs\controller" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.mindskip.xzs.controller" />
       <recent name="com.mindskip.xzs.controller.wx" />
@@ -123,7 +135,7 @@
       <option name="presentableId" value="Default" />
       <updated>1729211274682</updated>
       <workItem from="1729211277111" duration="639000" />
-      <workItem from="1729224358485" duration="9882000" />
+      <workItem from="1729224358485" duration="24295000" />
     </task>
     <task id="LOCAL-00001" summary="readme">
       <option name="closed" value="true" />
@@ -157,7 +169,31 @@
       <option name="project" value="LOCAL" />
       <updated>1729214174609</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="FileController">
+      <option name="closed" value="true" />
+      <created>1729237339262</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1729237339262</updated>
+    </task>
+    <task id="LOCAL-00006" summary="FileController">
+      <option name="closed" value="true" />
+      <created>1729237361783</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1729237361783</updated>
+    </task>
+    <task id="LOCAL-00007" summary="FileController">
+      <option name="closed" value="true" />
+      <created>1729307213512</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1729307213512</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,6 +223,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="readme" />
     <MESSAGE value="test" />
     <MESSAGE value="FileController" />
