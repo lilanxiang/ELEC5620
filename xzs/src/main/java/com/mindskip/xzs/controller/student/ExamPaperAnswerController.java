@@ -125,29 +125,63 @@ public class ExamPaperAnswerController extends BaseApiController {
         // title='<p>苹果的英文？</p>', gradeLevel=1, items=[], analyze='apple', correctArray=null, correct='apple<br/>', score='1', difficult=1, itemOrder=1}]}], score='1'}
         String title = vm.getPaper().getTitleItems().get(0).getQuestionItems().get(0).getTitle();
         System.out.println(title);
-        int start = title.indexOf("<p>") + "<p>".length();
+
+//        int start = title.indexOf("<p>") + "<p>".length();
+//        int end = title.indexOf("</p>");
+//        String realTitle = title.substring(start, end);
+
+        int start = title.indexOf("<p>");
         int end = title.indexOf("</p>");
-        String realTitle = title.substring(start, end);
+
+// 检查 <p> 和 </p> 是否都存在，确保索引有效
+        String realTitle;
+        if (start != -1 && end != -1 && start + "<p>".length() <= end) {
+            start += "<p>".length();
+            realTitle = title.substring(start, end);
+            System.out.println(realTitle);
+        } else {
+            System.out.println("Invalid HTML tags in the title.");
+            // 处理错误情况，例如返回默认值或抛出异常
+            return RestResponse.fail(4, "无效的题目格式");
+        }
+        System.out.println("=====================================");
         System.out.println(realTitle);
-        String realAnswer = vm.getPaper().getTitleItems().get(0).getQuestionItems().get(0).getAnalyze();
+        //String realAnswer = vm.getPaper().getTitleItems().get(0).getQuestionItems().get(0).getAnalyze();
+        String realAnswer = vm.getAnswer().getAnswerItems().get(0).getContent();
         System.out.println(realAnswer);
+        //realTitle和realAnswer就是题目和回答
+
+
+
 
 
         System.out.println("=====================================");
         String prompt = String.format("题目是：%s 答案是：%s 请给出这个答案的合理性分析。", realTitle, realAnswer);
         String aiResponse = openAIService.getOpenAIResponse2(prompt);
-        System.out.println(aiResponse);
+//        System.out.println(aiResponse);//aiResponse是分数就是一个数字
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode rootNode = objectMapper.readTree(aiResponse);
-
-        // 定位到 "content" 字段
-        String content = rootNode.path("choices").get(0)
+        String mark = rootNode.path("choices").get(0)
                 .path("message").path("content").asText();
-        System.out.println(content);
-        String fakeName = vm.getPaper().getName()+content;
+        System.out.println(mark);
+
+        System.out.println("===============mark================");
+
+        //获取分析
+        String prompt1 = String.format("题目是：%s 答案是：%s 请给出这个答案的合理性分析。", realTitle, realAnswer);
+        String aiResponse2 = openAIService.getOpenAIResponse(prompt1);
+        ObjectMapper objectMapper2 = new ObjectMapper();
+        JsonNode rootNode2 = objectMapper2.readTree(aiResponse2);
+        String analyse = rootNode2.path("choices").get(0)
+                .path("message").path("content").asText();
+        System.out.println(analyse);
+
+        System.out.println("===========analyse=================");
+        // 定位到 "mark" 字段
+
+        String fakeName = vm.getPaper().getName() +"?"+ mark+"?"+analyse;
         vm.getPaper().setName(fakeName);
-
-
+        System.out.println(vm.getPaper().getName());
         return RestResponse.ok(vm);
     }
 

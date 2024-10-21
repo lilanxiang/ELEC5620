@@ -1,15 +1,14 @@
 package com.mindskip.xzs.controller.student;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mindskip.xzs.base.BaseApiController;
 import com.mindskip.xzs.base.RestResponse;
 import com.mindskip.xzs.domain.ExamPaperQuestionCustomerAnswer;
 import com.mindskip.xzs.domain.Subject;
 import com.mindskip.xzs.domain.TextContent;
 import com.mindskip.xzs.domain.question.QuestionObject;
-import com.mindskip.xzs.service.ExamPaperQuestionCustomerAnswerService;
-import com.mindskip.xzs.service.QuestionService;
-import com.mindskip.xzs.service.SubjectService;
-import com.mindskip.xzs.service.TextContentService;
+import com.mindskip.xzs.service.*;
 import com.mindskip.xzs.utility.DateTimeUtil;
 import com.mindskip.xzs.utility.HtmlUtil;
 import com.mindskip.xzs.utility.JsonUtil;
@@ -23,6 +22,8 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+
 @RestController("StudentQuestionAnswerController")
 @RequestMapping(value = "/api/student/question/answer")
 public class QuestionAnswerController extends BaseApiController {
@@ -31,6 +32,9 @@ public class QuestionAnswerController extends BaseApiController {
     private final QuestionService questionService;
     private final TextContentService textContentService;
     private final SubjectService subjectService;
+
+    @Autowired
+    OpenAIService openAIService;
 
     @Autowired
     public QuestionAnswerController(ExamPaperQuestionCustomerAnswerService examPaperQuestionCustomerAnswerService, QuestionService questionService, TextContentService textContentService, SubjectService subjectService) {
@@ -59,15 +63,68 @@ public class QuestionAnswerController extends BaseApiController {
     }
 
 
-    @RequestMapping(value = "/select/{id}", method = RequestMethod.POST)
-    public RestResponse<QuestionAnswerVM> select(@PathVariable Integer id) {
-        QuestionAnswerVM vm = new QuestionAnswerVM();
-        ExamPaperQuestionCustomerAnswer examPaperQuestionCustomerAnswer = examPaperQuestionCustomerAnswerService.selectById(id);
-        ExamPaperSubmitItemVM questionAnswerVM = examPaperQuestionCustomerAnswerService.examPaperQuestionCustomerAnswerToVM(examPaperQuestionCustomerAnswer);
-        QuestionEditRequestVM questionVM = questionService.getQuestionEditRequestVM(examPaperQuestionCustomerAnswer.getQuestionId());
-        vm.setQuestionVM(questionVM);
-        vm.setQuestionAnswerVM(questionAnswerVM);
-        return RestResponse.ok(vm);
+//    @RequestMapping(value = "/select/{id}", method = RequestMethod.POST)
+//    public RestResponse<QuestionAnswerVM> select(@PathVariable Integer id) {
+//        QuestionAnswerVM vm = new QuestionAnswerVM();
+//        ExamPaperQuestionCustomerAnswer examPaperQuestionCustomerAnswer = examPaperQuestionCustomerAnswerService.selectById(id);
+//        ExamPaperSubmitItemVM questionAnswerVM = examPaperQuestionCustomerAnswerService.examPaperQuestionCustomerAnswerToVM(examPaperQuestionCustomerAnswer);
+//        QuestionEditRequestVM questionVM = questionService.getQuestionEditRequestVM(examPaperQuestionCustomerAnswer.getQuestionId());
+//        vm.setQuestionVM(questionVM);
+//        vm.setQuestionAnswerVM(questionAnswerVM);
+//        return RestResponse.ok(vm);
+//    }
+
+@RequestMapping(value = "/select/{id}", method = RequestMethod.POST)
+public RestResponse<QuestionAnswerVM> select(@PathVariable Integer id) throws IOException {
+    QuestionAnswerVM vm = new QuestionAnswerVM();
+    ExamPaperQuestionCustomerAnswer examPaperQuestionCustomerAnswer = examPaperQuestionCustomerAnswerService.selectById(id);
+    ExamPaperSubmitItemVM questionAnswerVM = examPaperQuestionCustomerAnswerService.examPaperQuestionCustomerAnswerToVM(examPaperQuestionCustomerAnswer);
+    QuestionEditRequestVM questionVM = questionService.getQuestionEditRequestVM(examPaperQuestionCustomerAnswer.getQuestionId());
+    vm.setQuestionVM(questionVM);
+    vm.setQuestionAnswerVM(questionAnswerVM);
+
+    System.out.println(vm.getQuestionVM());
+    System.out.println(vm.getQuestionAnswerVM());
+
+    String originalTitle = vm.getQuestionVM().getTitle();
+    System.out.println(originalTitle);
+
+//    int start = originalTitle.indexOf("<p>") + "<p>".length();
+//    int end = originalTitle.indexOf("</p >");
+//    String realTitle = originalTitle.substring(start, end);
+
+
+    int start = originalTitle.indexOf("<p>");
+    int end = originalTitle.indexOf("</p>");
+
+// 检查 <p> 和 </p> 是否都存在，确保索引有效
+    String realTitle;
+    if (start != -1 && end != -1 && start + "<p>".length() <= end) {
+        start += "<p>".length();
+        realTitle = originalTitle.substring(start, end);
+        System.out.println(realTitle);
+    } else {
+        System.out.println("Invalid HTML tags in the title.");
+        // 处理错误情况，例如返回默认值或抛出异常
+        return RestResponse.fail(4, "无效的题目格式");
     }
+
+    System.out.println(realTitle);
+
+    System.out.println("=====================================");
+    String prompt = String.format("题目是：%s", realTitle);
+    String aiResponse = openAIService.getOpenAIResponse3(prompt);
+    System.out.println(aiResponse);
+    ObjectMapper objectMapper = new ObjectMapper();
+    JsonNode rootNode = objectMapper.readTree(aiResponse);
+
+// 定位到 "content" 字段
+    String content = rootNode.path("choices").get(0)
+            .path("message").path("content").asText();
+    System.out.println(content);
+    vm.getQuestionVM().setAnalyze(content);
+
+    return RestResponse.ok(vm);
+}
 
 }
