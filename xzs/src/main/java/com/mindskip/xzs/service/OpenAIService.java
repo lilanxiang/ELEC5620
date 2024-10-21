@@ -18,10 +18,14 @@ import java.util.Map;
 
 @Service
 public class OpenAIService {
+        private static final String API_KEY = "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";
+    private static final String API_URL = "https://api.openai.com/v1/chat/completions";
+    private final RestTemplate restTemplate = new RestTemplate();
 
 
 
-   public String getOpenAIResponse(String prompt) {
+
+    public String getOpenAIResponse(String prompt) {
 //       prompt = prompt +"我可以得多少分，假如满分是100,只给我分数就好了";
        // 构造请求头
        HttpHeaders headers = new HttpHeaders();
