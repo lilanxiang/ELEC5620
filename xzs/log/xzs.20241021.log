@@ -2568,3 +2568,27 @@ Caused by: java.lang.LinkageError: loader 'app' attempted duplicate class defini
 2024-10-21 19:42:49.261 DEBUG 14792 --- [XNIO-1 task-21] r.c.m.x.r.T.selectByPrimaryKey           : ==>  Preparing: select id, content, create_time from t_text_content where id = ? 
 2024-10-21 19:42:49.261 DEBUG 14792 --- [XNIO-1 task-21] r.c.m.x.r.T.selectByPrimaryKey           : ==> Parameters: 37(Integer)
 2024-10-21 19:42:49.261 DEBUG 14792 --- [XNIO-1 task-21] r.c.m.x.r.T.selectByPrimaryKey           : <==      Total: 1
+2024-10-21 19:47:01.884 DEBUG 14792 --- [XNIO-1 task-22] r.c.m.x.r.E.selectByPrimaryKey           : ==>  Preparing: select id, exam_paper_id, paper_name, paper_type, subject_id, system_score, user_score, paper_score, question_correct, question_count, do_time, status, create_user, create_time, task_exam_id from t_exam_paper_answer where id = ? 
+2024-10-21 19:47:01.884 DEBUG 14792 --- [XNIO-1 task-22] r.c.m.x.r.E.selectByPrimaryKey           : ==> Parameters: 30(Integer)
+2024-10-21 19:47:01.892 DEBUG 14792 --- [XNIO-1 task-22] r.c.m.x.r.E.selectByPrimaryKey           : <==      Total: 1
+2024-10-21 19:47:01.893 DEBUG 14792 --- [XNIO-1 task-22] r.c.m.x.r.E.selectByPrimaryKey           : ==>  Preparing: select id, name, subject_id, paper_type, grade_level, score, question_count, suggest_time, limit_start_time, limit_end_time, frame_text_content_id, create_user, create_time, deleted, task_exam_id from t_exam_paper where id = ? 
+2024-10-21 19:47:01.893 DEBUG 14792 --- [XNIO-1 task-22] r.c.m.x.r.E.selectByPrimaryKey           : ==> Parameters: 6(Integer)
+2024-10-21 19:47:01.893 DEBUG 14792 --- [XNIO-1 task-22] r.c.m.x.r.E.selectByPrimaryKey           : <==      Total: 1
+2024-10-21 19:47:01.893 DEBUG 14792 --- [XNIO-1 task-22] r.c.m.x.r.T.selectByPrimaryKey           : ==>  Preparing: select id, content, create_time from t_text_content where id = ? 
+2024-10-21 19:47:01.893 DEBUG 14792 --- [XNIO-1 task-22] r.c.m.x.r.T.selectByPrimaryKey           : ==> Parameters: 29(Integer)
+2024-10-21 19:47:01.893 DEBUG 14792 --- [XNIO-1 task-22] r.c.m.x.r.T.selectByPrimaryKey           : <==      Total: 1
+2024-10-21 19:47:01.893 DEBUG 14792 --- [XNIO-1 task-22] r.c.m.x.r.QuestionMapper.selectByIds     : ==>  Preparing: SELECT id, question_type, subject_id, score, grade_level, difficult, correct, info_text_content_id, create_user, status, create_time, deleted FROM t_question where id in ( ? ) 
+2024-10-21 19:47:01.893 DEBUG 14792 --- [XNIO-1 task-22] r.c.m.x.r.QuestionMapper.selectByIds     : ==> Parameters: 7(Integer)
+2024-10-21 19:47:01.893 DEBUG 14792 --- [XNIO-1 task-22] r.c.m.x.r.QuestionMapper.selectByIds     : <==      Total: 1
+2024-10-21 19:47:01.893 DEBUG 14792 --- [XNIO-1 task-22] r.c.m.x.r.T.selectByPrimaryKey           : ==>  Preparing: select id, content, create_time from t_text_content where id = ? 
+2024-10-21 19:47:01.893 DEBUG 14792 --- [XNIO-1 task-22] r.c.m.x.r.T.selectByPrimaryKey           : ==> Parameters: 28(Integer)
+2024-10-21 19:47:01.893 DEBUG 14792 --- [XNIO-1 task-22] r.c.m.x.r.T.selectByPrimaryKey           : <==      Total: 1
+2024-10-21 19:47:01.907 DEBUG 14792 --- [XNIO-1 task-22] r.c.m.x.r.E.selectByPrimaryKey           : ==>  Preparing: select id, exam_paper_id, paper_name, paper_type, subject_id, system_score, user_score, paper_score, question_correct, question_count, do_time, status, create_user, create_time, task_exam_id from t_exam_paper_answer where id = ? 
+2024-10-21 19:47:01.907 DEBUG 14792 --- [XNIO-1 task-22] r.c.m.x.r.E.selectByPrimaryKey           : ==> Parameters: 30(Integer)
+2024-10-21 19:47:01.907 DEBUG 14792 --- [XNIO-1 task-22] r.c.m.x.r.E.selectByPrimaryKey           : <==      Total: 1
+2024-10-21 19:47:01.907 DEBUG 14792 --- [XNIO-1 task-22] r.c.m.x.r.E.selectListByPaperAnswerId    : ==>  Preparing: select id, question_id, exam_paper_id, exam_paper_answer_id, question_type, subject_id, customer_score, question_score, question_text_content_id, answer, text_content_id, do_right, create_user, create_time, item_order from t_exam_paper_question_customer_answer where exam_paper_answer_id = ? order by item_order 
+2024-10-21 19:47:01.907 DEBUG 14792 --- [XNIO-1 task-22] r.c.m.x.r.E.selectListByPaperAnswerId    : ==> Parameters: 30(Integer)
+2024-10-21 19:47:01.907 DEBUG 14792 --- [XNIO-1 task-22] r.c.m.x.r.E.selectListByPaperAnswerId    : <==      Total: 1
+2024-10-21 19:47:01.907 DEBUG 14792 --- [XNIO-1 task-22] r.c.m.x.r.T.selectByPrimaryKey           : ==>  Preparing: select id, content, create_time from t_text_content where id = ? 
+2024-10-21 19:47:01.907 DEBUG 14792 --- [XNIO-1 task-22] r.c.m.x.r.T.selectByPrimaryKey           : ==> Parameters: 43(Integer)
+2024-10-21 19:47:01.907 DEBUG 14792 --- [XNIO-1 task-22] r.c.m.x.r.T.selectByPrimaryKey           : <==      Total: 1
